@@ -21,8 +21,6 @@ const (
 
 func main() {
 
-	fmt.Println("SECRET:", os.Getenv("OPENAI_API_KEY"))
-	fmt.Println("variable:", os.Getenv("APIKEY"))
 	CatchApiKeyOpenAI()
 	// Get the hash of the current commit
 	commitHash := os.Getenv("GITHUB_SHA")
@@ -131,7 +129,6 @@ func FetchCodeFirstTag(code string) (string, string, string) {
 func CatchApiKeyOpenAI() string {
 	result := os.Getenv("OPENAI_API_KEY")
 	if result == "" {
-		println("ApiKey:" + result)
 		os.Exit(1)
 		panic("Error: API key not found. Check if the secret OPENAI_API_KEY is configured.")
 	}
